@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My lover</title>
+    <style>
+        body {
+            background-color: #7ec3e6;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #text_id {
+            color: #590d22;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border: 3px solid #7e9be6;
+            background-color: #7e9be6;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+            position: absolute;
+        }
+
+        .button:hover {
+            background-color: #5a75ac;
+            border-color: #5a75ac;
+        }
+
+        #noButton {
+            top: 500px;
+            z-index: 2;
+        }
+
+        #simButton {
+            margin-top: 100px;
+        }
+
+        #gif {
+            width: 320px;
+            height: 300px;
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1; /* Coloca o gif acima do texto e dos botões */
+        }
+
+    </style>
+</head>
+
+<body>
+    <img id="gif" src="https://media.giphy.com/media/WBdduf0QEzoiFGoayf/giphy.gif" alt="GIF">
+    <div id="text_id">Quer namorar comigo?</div>
+    <button class="button" id="noButton" onmouseover="moveButton()" onclick="denied()">Não</button>
+    <button class="button" id="simButton" onclick="accepted()">Sim</button>
+
+    <script>
+        function moveButton() {
+            var button = document.getElementById('noButton');
+            var x = Math.random() * (window.innerWidth - button.offsetWidth);
+            var y = Math.random() * (window.innerHeight - button.offsetHeight);
+            button.style.left = x + 'px';
+            button.style.top = y + 'px';
+            button.removeEventListener('mouseover', moveButton); // Remove the event listener to stop the button from moving
+        }
+
+        function accepted() {
+            var text = "Eu te amo meu amor, quero estar sempre ao seu lado...";
+            var gifUrl = "https://media1.giphy.com/media/Mey4gd5Ft47VcQAFMl/giphy.gif";
+            var img = document.createElement('img');
+            img.src = gifUrl;
+            document.body.innerHTML = '';
+            document.body.appendChild(img);
+            var textNode = document.createElement('div');
+            textNode.id = 'text_id';
+            textNode.textContent = text;
+            document.body.appendChild(textNode);
+        }
+
+        function denied() {
+            document.getElementById('noButton').style.display = 'none';
+        }
+
+    </script>
+</body>
+
+</html>
