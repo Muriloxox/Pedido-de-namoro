@@ -8,7 +8,7 @@
     <title>My lover</title>
     <style>
         body {
-            background-color: #7ec3e6;
+            background: linear-gradient(135deg, #ff8a8a, #ff7f50);
             font-family: 'Montserrat', sans-serif;
             display: flex;
             flex-direction: column;
@@ -23,62 +23,71 @@
             font-size: 24px;
             font-weight: bold;
             text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .button {
-            padding: 10px 20px;
-            font-size: 14px;
-            font-weight: bold;
-            border: 3px solid #7e9be6;
-            background-color: #7e9be6;
-            color: white;
-            cursor: pointer;
-            margin-top: 20px;
-            position: absolute;
-        }
-
-        .button:hover {
-            background-color: #5a75ac;
-            border-color: #5a75ac;
-        }
-
-        #noButton {
-            top: 500px;
-            z-index: 2;
-        }
-
-        #simButton {
-            margin-top: 100px;
+            margin: 20px 0;
         }
 
         #gif {
             width: 320px;
             height: 300px;
-            position: absolute;
-            top: 0px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1; /* Coloca o gif acima do texto e dos botões */
+            margin: 0 auto;
+            display: block;
         }
 
+        .button {
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #simButton {
+            background-color: #34c759;
+            box-shadow: 0 4px 10px rgba(52, 199, 89, 0.4);
+        }
+
+        #noButton {
+            background-color: #ff3b30;
+            box-shadow: 0 4px 10px rgba(255, 59, 48, 0.4);
+        }
+
+        #simButton:hover {
+            background-color: #28a745;
+            box-shadow: 0 6px 15px rgba(52, 199, 89, 0.6);
+        }
+
+        #noButton:hover {
+            background-color: #cc2b27;
+            box-shadow: 0 6px 15px rgba(255, 59, 48, 0.6);
+        }
+
+        .button-container {
+            display: inline-flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
     </style>
 </head>
 
 <body>
     <img id="gif" src="https://media.giphy.com/media/WBdduf0QEzoiFGoayf/giphy.gif" alt="GIF">
     <div id="text_id">Quer namorar comigo?</div>
-    <button class="button" id="noButton" onmouseover="moveButton()" onclick="denied()">Não</button>
-    <button class="button" id="simButton" onclick="accepted()">Sim</button>
+    <div class="button-container">
+        <button class="button" id="noButton" onmouseover="moveButton()" onclick="denied()">Não</button>
+        <button class="button" id="simButton" onclick="accepted()">Sim</button>
+    </div>
 
     <script>
         function moveButton() {
             var button = document.getElementById('noButton');
             var x = Math.random() * (window.innerWidth - button.offsetWidth);
             var y = Math.random() * (window.innerHeight - button.offsetHeight);
+            button.style.position = "absolute";
             button.style.left = x + 'px';
             button.style.top = y + 'px';
-            button.removeEventListener('mouseover', moveButton);
         }
 
         function accepted() {
@@ -97,7 +106,6 @@
         function denied() {
             document.getElementById('noButton').style.display = 'none';
         }
-
     </script>
 </body>
 
