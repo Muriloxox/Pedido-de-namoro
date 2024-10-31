@@ -69,6 +69,15 @@
             gap: 15px;
             margin-top: 15px;
         }
+
+        footer {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.5);
+            text-align: right;
+        }
     </style>
 </head>
 
@@ -79,6 +88,10 @@
         <button class="button" id="noButton" onmouseover="moveButton()" onclick="denied()">Não</button>
         <button class="button" id="simButton" onclick="accepted()">Sim</button>
     </div>
+
+    <footer>
+        <p>Criado por Murilo Oliveira Quartezani</p>
+    </footer>
 
     <script>
         function moveButton() {
