@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My lover</title>
+    <title>My Lover</title>
     <style>
         body {
             background: linear-gradient(135deg, #ff8a8a, #ff7f50);
@@ -66,8 +66,10 @@
 
         .button-container {
             display: inline-flex;
+            flex-wrap: wrap;
             gap: 15px;
             margin-top: 15px;
+            justify-content: center;
         }
 
         footer {
@@ -82,7 +84,7 @@
 </head>
 
 <body>
-    <img id="gif" src= "love 1.gif" alt="GIF">
+    <img id="gif" src="love 1.gif" alt="GIF">
     <div id="text_id">Quer namorar comigo?</div>
     <div class="button-container">
         <button class="button" id="noButton" onmouseover="moveButton()" onclick="denied()">Não</button>
@@ -96,8 +98,18 @@
     <script>
         function moveButton() {
             var button = document.getElementById('noButton');
-            var x = Math.random() * (window.innerWidth - button.offsetWidth);
-            var y = Math.random() * (window.innerHeight - button.offsetHeight);
+            var buttonWidth = button.offsetWidth;
+            var buttonHeight = button.offsetHeight;
+
+            // Limites da janela
+            var maxWidth = window.innerWidth - buttonWidth;
+            var maxHeight = window.innerHeight - buttonHeight;
+
+            // Cálculo das novas posições
+            var x = Math.random() * maxWidth;
+            var y = Math.random() * maxHeight;
+
+            // Atualização da posição do botão
             button.style.position = "absolute";
             button.style.left = x + 'px';
             button.style.top = y + 'px';
