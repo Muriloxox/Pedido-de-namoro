@@ -101,15 +101,12 @@
             var buttonWidth = button.offsetWidth;
             var buttonHeight = button.offsetHeight;
 
-            // Limites da janela
             var maxWidth = window.innerWidth - buttonWidth;
             var maxHeight = window.innerHeight - buttonHeight;
 
-            // Cálculo das novas posições
             var x = Math.random() * maxWidth;
             var y = Math.random() * maxHeight;
 
-            // Atualização da posição do botão
             button.style.position = "absolute";
             button.style.left = x + 'px';
             button.style.top = y + 'px';
